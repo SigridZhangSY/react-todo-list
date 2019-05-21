@@ -1,7 +1,12 @@
-.list-item{
+.list-item {
     display: flex;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
+}
+
+.list-item.done {
+    text-decoration: line-through;
+    color: #929292;
 }
 
 .list-item:last-child {

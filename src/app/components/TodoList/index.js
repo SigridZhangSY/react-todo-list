@@ -9,7 +9,8 @@ export default class TodoList extends PureComponent {
       list: [
         {
           id: 1,
-          content: 'reading Refactor'
+          content: 'reading Refactor',
+          done: true
         },
         {
           id: 2,
