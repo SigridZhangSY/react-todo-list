@@ -36,29 +36,28 @@ export default class TodoList extends PureComponent {
 
   }
 
-  markAsDone = (itemId) => {
+  changeListContent = (targetId, newListGenerator) => {
     const list = this.state.list
-    const targetIndex = list.findIndex(item => item.id === itemId)
+    const targetIndex = list.findIndex(item => item.id === targetId)
     if (targetIndex>0) {
       const target = list[targetIndex]
       const preHalf = list.slice(0, targetIndex)
       const nextHalf = list.slice(targetIndex+1, list.length)
-
-      const newList = preHalf.concat([{...target, done:true}], nextHalf)
+      const newList = newListGenerator(preHalf, nextHalf)(target)
       this.setState({...this.state, list: newList})
     }
   }
 
-  removeItem = (itemId) => {
-    const list = this.state.list
-    const targetIndex = list.findIndex(item => item.id === itemId)
-    if (targetIndex>0) {
-      const preHalf = list.slice(0, targetIndex)
-      const nextHalf = list.slice(targetIndex+1, list.length)
+  markAsDone = (itemId) => {
+    const markTargetAsDone = (preHalf, nextHalf) =>
+      (target) => preHalf.concat([{...target, done:true}], nextHalf)
+    this.changeListContent(itemId, markTargetAsDone)
+  }
 
-      const newList = preHalf.concat(nextHalf)
-      this.setState({...this.state, list: newList})
-    }
+  removeItem = (itemId) => {
+    const markTargetAsDone = (preHalf, nextHalf) =>
+      (target) => preHalf.concat(nextHalf)
+    this.changeListContent(itemId, markTargetAsDone)
   }
 
   render() {
