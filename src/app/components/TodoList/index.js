@@ -36,7 +36,18 @@ export default class TodoList extends PureComponent {
 
   }
 
+  markAsDone = (itemId) => {
+    const list = this.state.list
+    const targetIndex = list.findIndex(item => item.id === itemId)
+    if (targetIndex>0) {
+      const target = list[targetIndex]
+      const preHalf = list.slice(0, targetIndex)
+      const nextHalf = list.slice(targetIndex+1, list.length)
 
+      const newList = preHalf.concat([{...target, done:true}], nextHalf)
+      this.setState({...this.state, list: newList})
+    }
+  }
 
   render() {
     return (
@@ -45,7 +56,10 @@ export default class TodoList extends PureComponent {
         <ul className="list-content">
           {
             this.state.list.map(item => (
-              <TodoListItem key={item.id} item={item}></TodoListItem>
+              <TodoListItem key={item.id}
+                            item={item}
+                            markAsDone={this.markAsDone}
+              ></TodoListItem>
             ))
           }
         </ul>
