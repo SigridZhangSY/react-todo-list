@@ -18,6 +18,23 @@ export default class TodoList extends PureComponent {
     }
   }
 
+  handleAddItem = (event) => {
+    event.preventDefault()
+    let list = this.state.list
+
+    const newList = list.concat([
+      {
+        id: list.length + 1,
+        content: this.refs.itemContent.value
+      }
+    ])
+
+    this.setState({ ...this.state, list: newList})
+
+  }
+
+
+
   render() {
     return (
       <div className="wrapper">
@@ -32,6 +49,13 @@ export default class TodoList extends PureComponent {
             ))
           }
         </ul>
+
+        <form onSubmit={this.handleAddItem}>
+          <div className="inline-input">
+            <input type="text" ref="itemContent"/>
+            <button type="submit" className="btn">Add</button>
+          </div>
+        </form>
       </div>
     );
   };
