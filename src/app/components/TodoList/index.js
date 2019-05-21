@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import './index.css'
 import TodoListItem from '../TodoListItem/index'
+import AddTodoItem from '../AddTodoItem/index'
 
 export default class TodoList extends PureComponent {
   constructor(props) {
@@ -20,14 +21,14 @@ export default class TodoList extends PureComponent {
     }
   }
 
-  handleAddItem = (event) => {
-    event.preventDefault()
+  addItem = (itemContent) => {
+
     let list = this.state.list
 
     const newList = list.concat([
       {
         id: list.length + 1,
-        content: this.refs.itemContent.value
+        content: itemContent
       }
     ])
 
@@ -48,13 +49,7 @@ export default class TodoList extends PureComponent {
             ))
           }
         </ul>
-
-        <form onSubmit={this.handleAddItem}>
-          <div className="inline-input">
-            <input type="text" ref="itemContent"/>
-            <button type="submit" className="btn">Add</button>
-          </div>
-        </form>
+        <AddTodoItem addItem={this.addItem}></AddTodoItem>
       </div>
     );
   };

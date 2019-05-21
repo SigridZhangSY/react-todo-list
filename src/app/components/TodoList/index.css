@@ -13,32 +13,4 @@ p {
     width: 40%;
 }
 
-.wrapper .inline-input {
-    display: flex;
-    width: 40%;
-    justify-content: space-between;
-    height: 30px;
-}
 
-.wrapper .inline-input>input {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    flex-grow: 1;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 5px;
-}
-
-.wrapper .inline-input>input:focus {
-    outline: none;
-}
-
-.wrapper .inline-input .btn {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-left: 10px;
-    width: 50px;
-    height: 100%;
-    cursor: pointer;
-}

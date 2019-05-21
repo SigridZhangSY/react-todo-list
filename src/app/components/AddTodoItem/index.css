@@ -1,0 +1,29 @@
+.inline-input {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.inline-input>input {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    flex-grow: 1;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.inline-input>input:focus {
+    outline: none;
+}
+
+.inline-input .btn {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+}
