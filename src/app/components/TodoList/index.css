@@ -10,26 +10,12 @@ p {
     padding-inline-start: 0;
     border: 1px solid #dddddd;
     border-radius: 10px;
-    width: 30%;
-}
-
-.wrapper>ul>li{
-    display: flex;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.wrapper>ul>li:last-child {
-    border-bottom: none;
-}
-
-.wrapper>ul>li .index {
-    padding-right: 10px;
+    width: 40%;
 }
 
 .wrapper .inline-input {
     display: flex;
-    width: 30%;
+    width: 40%;
     justify-content: space-between;
     height: 30px;
 }
@@ -39,13 +25,12 @@ p {
     border-radius: 10px;
     flex-grow: 1;
     height: 100%;
-    padding: 0;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 .wrapper .inline-input>input:focus {
     outline: none;
-    box-sizing: border-box;
-    padding: 5px;
 }
 
 .wrapper .inline-input .btn {

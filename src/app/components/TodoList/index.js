@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react';
-import './index.css';
+import React, { PureComponent } from 'react'
+import './index.css'
+import TodoListItem from '../TodoListItem/index'
 
 export default class TodoList extends PureComponent {
   constructor(props) {
@@ -42,10 +43,7 @@ export default class TodoList extends PureComponent {
         <ul className="list-content">
           {
             this.state.list.map(item => (
-              <li className="list-item" key={item.id}>
-                <p className="index">{item.id}</p>
-                <p>{item.content}</p>
-              </li>
+              <TodoListItem key={item.id} item={item}></TodoListItem>
             ))
           }
         </ul>

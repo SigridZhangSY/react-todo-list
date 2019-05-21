@@ -1,0 +1,13 @@
+.list-item{
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item .index {
+    padding-right: 10px;
+}
