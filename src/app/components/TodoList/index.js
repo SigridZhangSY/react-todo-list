@@ -27,7 +27,7 @@ export default class TodoList extends PureComponent {
 
     const newList = list.concat([
       {
-        id: list.length + 1,
+        id: list[list.length-1].id + 1,
         content: itemContent
       }
     ])
@@ -49,6 +49,18 @@ export default class TodoList extends PureComponent {
     }
   }
 
+  removeItem = (itemId) => {
+    const list = this.state.list
+    const targetIndex = list.findIndex(item => item.id === itemId)
+    if (targetIndex>0) {
+      const preHalf = list.slice(0, targetIndex)
+      const nextHalf = list.slice(targetIndex+1, list.length)
+
+      const newList = preHalf.concat(nextHalf)
+      this.setState({...this.state, list: newList})
+    }
+  }
+
   render() {
     return (
       <div className="wrapper">
@@ -59,6 +71,7 @@ export default class TodoList extends PureComponent {
               <TodoListItem key={item.id}
                             item={item}
                             markAsDone={this.markAsDone}
+                            removeItem={this.removeItem}
               ></TodoListItem>
             ))
           }

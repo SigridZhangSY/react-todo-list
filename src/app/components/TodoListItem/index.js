@@ -2,15 +2,15 @@ import React from 'react';
 import './index.css';
 
 const TodoListItem = (props) => {
-  const {item, markAsDone} = props
+  const {item, markAsDone, removeItem} = props
 
   return (
     <li
-      className={`list-item ${item.done ? 'done' : ''}`}
-      onClick={() => markAsDone(item.id)}
+      className={"list-item"}
     >
-      <p className="index">{item.id}</p>
-      <p>{item.content}</p>
+      <p className={`content ${item.done ? 'done' : ''}`}
+         onClick={() => markAsDone(item.id)}>{item.content}</p>
+      <button onClick={() => removeItem(item.id)}>&times;</button>
     </li>
   )
 }

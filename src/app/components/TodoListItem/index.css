@@ -2,10 +2,10 @@
     display: flex;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
-    cursor: pointer;
+
 }
 
-.list-item.done {
+.list-item .done {
     text-decoration: line-through;
     color: #929292;
 }
@@ -14,6 +14,22 @@
     border-bottom: none;
 }
 
-.list-item .index {
-    padding-right: 10px;
+.list-item .content {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+
+.list-item .content.done {
+    cursor: auto;
+}
+
+.list-item>button {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.list-item>button:focus {
+    outline: none;
 }
