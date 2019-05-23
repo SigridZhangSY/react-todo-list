@@ -1,14 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { PureList } from './app/components/PureList/index';
 import TodoList from './app/components/TodoList/index';
 
 function App() {
-  const list = ['item1', 'item2', 'item3'];
 
   return (
-    // <PureList list={list}></PureList>
     <TodoList></TodoList>
   );
 

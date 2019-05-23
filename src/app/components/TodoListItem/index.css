@@ -1,5 +1,6 @@
 .list-item {
     display: flex;
+    align-items: center;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
 
@@ -14,6 +15,10 @@
     border-bottom: none;
 }
 
+.list-item:first-child>img {
+    display: none;
+}
+
 .list-item .content {
     flex-grow: 1;
     cursor: pointer;
@@ -24,12 +29,18 @@
     cursor: auto;
 }
 
-.list-item>button {
+.list-item>.btn {
     border: none;
     text-decoration: none;
     cursor: pointer;
 }
 
-.list-item>button:focus {
+.list-item>.btn:focus {
     outline: none;
+}
+
+.list-item>img {
+    width: 10px;
+    height: 10px;
+    padding: 0 5px;
 }
